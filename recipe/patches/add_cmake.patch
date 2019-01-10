@@ -39,7 +39,7 @@
 +          LIBRARY
 +            DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
 +          RUNTIME
-+            DESTINATION ${CMAKE_INSTALL_PREDIX}/lib
++            DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
 +          )
 +else()
 +        message(STATUS "CMAKE INSTALL LIBDIR: ${CMAKE_INSTALL_PREFIX}")

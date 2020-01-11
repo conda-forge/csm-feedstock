@@ -1,18 +1,18 @@
 {% set name = "csm" %}
-{% set version = "v3.0.3.1" %}
+{% set version = "3.0.3.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/sminster/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: dbb207704c54d9d0358c77e1773f6a11272110d4c609bde75f88eb78767da1a1
+  url: https://github.com/sminster/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: dcb2f1bbdfd3b506a9646a5bfcc00026ed161cd1bbb61452498d2537f3b8706e
   patches:
      - patches/add_cmake.patch  # Adds the CMake build system
 
 build:
-  number: 1001
+  number: 0
 
 requirements:
   build:

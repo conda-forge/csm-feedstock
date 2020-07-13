@@ -12,13 +12,13 @@ source:
      - patches/add_cmake.patch  # Adds the CMake build system
 
 build:
-  number: 1001
+  number: 1002
 
 requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
-  host:
     - cmake
+    - ninja
 
 test:
   commands:
@@ -27,6 +27,7 @@ test:
     - test -e $PREFIX/include/csm/Isd.h  # [not win]
     - test -e $PREFIX/include/csm/csm.h  # [not win]
     - if not exist %LIBRARY_BIN%\csmapi.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\csmapi.lib exit 1  # [win]
     - if not exist %LIBRARY_INC%\csm\Ellipsoid.h exit 1  # [win]
 
 about:

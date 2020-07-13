@@ -1,14 +1,14 @@
 mkdir build
 cd build
 
-cmake -G "NMake Makefiles" ^
-   -D CMAKE_BUILD_TYPE=Release ^
-   -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-    %SRC_DIR%
+cmake -GNinja ^
+      -DCMAKE_BUILD_TYPE=Release ^
+      -DCMAKE_INSTALL_LIBDIR="%LIBRARY_LIB%" ^
+      -DCMAKE_INSTALL_INCLUDEDIR="%LIBRARY_INC%" ^
+      -DCMAKE_INSTALL_BINDIR="%LIBRARY_BIN%" ^
+      -DCMAKE_INSTALL_DATADIR="%LIBRARY_PREFIX%" ^
+      %SRC_DIR%
 if errorlevel 1 exit 1
 
-nmake
-if errorlevel 1 exit 1
-
-nmake install
+cmake --build . --target install --config Release
 if errorlevel 1 exit 1

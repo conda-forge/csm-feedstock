@@ -1,6 +1,6 @@
 --- /dev/null	2019-01-06 12:45:33.000000000 -0700
 +++ CMakeLists.txt	2019-01-06 12:45:38.000000000 -0700
-@@ -0,0 +1,44 @@
+@@ -0,0 +1,35 @@
 +cmake_minimum_required(VERSION 3.10)
 +project(csmapi VERSION 3.0.3 DESCRIPTION "Community Sensor Model API")
 +set(CMAKE_CXX_STANDARD 11)
@@ -33,15 +33,6 @@
 +target_include_directories(csmapi PUBLIC ${PROJECT_SOURCE_DIR})
 +
 +message(STATUS "CMAKE INSTALL LIBDIR: ${CMAKE_INSTALL_PREFIX}")
-+if(WIN32)
-+  set(WINDOWS_EXPORT_ALL_SYMBOLS ON)
-+  install(TARGETS csmapi
-+          LIBRARY
-+            DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-+          RUNTIME
-+            DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
-+          )
-+else()
-+        install(TARGETS csmapi LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-+endif()
++set(WINDOWS_EXPORT_ALL_SYMBOLS ON)
++install(TARGETS csmapi LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 +install(FILES ${HEADER_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/csm)
